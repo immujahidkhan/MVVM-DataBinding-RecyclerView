@@ -13,17 +13,14 @@ import com.example.databinding.model.Employee;
 
 import java.util.ArrayList;
 
-public class EmployeeDataAdapter
-        extends RecyclerView.Adapter<EmployeeDataAdapter.EmployeeViewHolder> {
+public class EmployeeDataAdapter extends RecyclerView.Adapter<EmployeeDataAdapter.EmployeeViewHolder> {
 
     private ArrayList<Employee> employees;
 
     @NonNull
     @Override
     public EmployeeViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        EmployeeListItemBinding employeeListItemBinding =
-                DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()),
-                        R.layout.employee_list_item, viewGroup, false);
+        EmployeeListItemBinding employeeListItemBinding = DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.employee_list_item, viewGroup, false);
         return new EmployeeViewHolder(employeeListItemBinding);
     }
 
@@ -51,10 +48,10 @@ public class EmployeeDataAdapter
 
         private EmployeeListItemBinding employeeListItemBinding;
 
-        public EmployeeViewHolder(@NonNull EmployeeListItemBinding employeetListItemBinding) {
-            super(employeetListItemBinding.getRoot());
+        EmployeeViewHolder(@NonNull EmployeeListItemBinding employeeListItemBinding) {
+            super(employeeListItemBinding.getRoot());
 
-            this.employeeListItemBinding = employeetListItemBinding;
+            this.employeeListItemBinding = employeeListItemBinding;
         }
     }
 }

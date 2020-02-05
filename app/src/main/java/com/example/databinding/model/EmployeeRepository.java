@@ -1,5 +1,6 @@
 package com.example.databinding.model;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.databinding.network.EmployeeDataService;
@@ -27,7 +28,7 @@ public class EmployeeRepository {
         Call<EmployeeDBResponse> call = userDataService.getEmployees();
         call.enqueue(new Callback<EmployeeDBResponse>() {
             @Override
-            public void onResponse(Call<EmployeeDBResponse> call, Response<EmployeeDBResponse> response) {
+            public void onResponse(@NonNull Call<EmployeeDBResponse> call, @NonNull Response<EmployeeDBResponse> response) {
                 EmployeeDBResponse employeeDBResponse = response.body();
                 if (employeeDBResponse != null && employeeDBResponse.getEmployee() != null) {
                     employees = (ArrayList<Employee>) employeeDBResponse.getEmployee();
@@ -36,7 +37,8 @@ public class EmployeeRepository {
             }
 
             @Override
-            public void onFailure(Call<EmployeeDBResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<EmployeeDBResponse> call, @NonNull Throwable t) {
+
             }
         });
 
